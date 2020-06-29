@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+     body{
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(to left, #8942a8, #bd382d);
+        height: 100vh;
+             }
+
+table {
+background-colour:white;
+position: absolute;
+top:35%;
+left:25%;
+             width: 52px;
+             height: 52px;
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
+}
+
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+</style>
+</head>
+<body>
+ 
+<br/>
+<div class="cur">
+    <table align="center" border="1" cellpadding="10">
+        <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>Employee email</th>
+                <th>Employee location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each=" emp : ${empl}">
+                <td th:text="${emp.eid}">Employee ID</td>
+                <td th:text="${emp.name}">Employee Name</td>
+                <td th:text="${emp.email}">Employee email</td>
+                <td th:text="${emp.location}">Employee location</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>
