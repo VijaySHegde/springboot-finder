@@ -11,13 +11,8 @@ pipeline {
                  { 
                     sh 'mvn clean install'
                  }
-            }stage('SonarQube analysis') {
-       steps{
-        withSonarQubeEnv('SonarQube') {
-            sh 'mvn sonar:sonar -Pprofile1'
-           }
-       }
-   }
+            }
+        
       stage('SonarQube analysis'){ 
          environment{
                scannerHome = tool 'Sonar'
