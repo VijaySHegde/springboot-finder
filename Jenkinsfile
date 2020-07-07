@@ -11,7 +11,20 @@ pipeline {
                  { 
                     sh 'mvn clean install'
                  }
+            }stage('SonarQube analysis') {
+       steps{
+        withSonarQubeEnv('SonarQube') {
+            sh 'mvn sonar:sonar -Pprofile1'
+           }
+       }
+   }
+      stage("Quality Gate") {
+            steps {
+              timeout(time: 10, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+              }
             }
+          }
         stage('deploy')
               {
                   steps
