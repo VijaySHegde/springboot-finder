@@ -35,5 +35,17 @@ class SpringappFinderApplicationTests {
 	    	
 	         
 	    }
+	@Test
+	    @Rollback(false)
+	    @Order(2)
+	    public void testDelProduct() {
+	    	String username = "priya";
+	    
+	    	boolean isExistBeforDelete = repo.findById(username).isPresent();
+	    	
+	    	assertTrue(isExistBeforDelete);
+	    	
+	         
+	    }
 	   
 }
