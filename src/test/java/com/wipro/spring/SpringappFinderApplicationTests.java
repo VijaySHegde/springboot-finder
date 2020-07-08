@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 
 import com.wipro.spring.repo.repo;
+import com.wipro.spring.repo.repoo;
 
 
 
@@ -21,6 +22,8 @@ import com.wipro.spring.repo.repo;
 class SpringappFinderApplicationTests {
 	@Autowired
     repo rep;
+	@Autowired
+    repoo repo;
 
 	
 	 @Test
@@ -35,7 +38,7 @@ class SpringappFinderApplicationTests {
 	    	
 	         
 	    }
-	@Test
+	 @Test
 	    @Rollback(false)
 	    @Order(2)
 	    public void testDelProduct() {
