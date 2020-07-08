@@ -13,8 +13,8 @@ pipeline {
                  }
             }
         
-      stage('SonarQube analysis'){ 
-         environment{
+     stage('SonarQube analysis'){ 
+        /* environment{
                scannerHome = tool 'Sonar'
                    }
        steps{
@@ -22,7 +22,10 @@ pipeline {
             sh "${scannerHome}/bin/sonar-scanner"
           // sh' mvn verify sonar:sonar'
            }
-       }
+       }*/
+         withSonarQubeEnv(credentialsId: '653a423ae8f9dab61b769118b5a1350c776843cf', installationName: 'SonarQube') { // You can override the credential to be used
+      sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+    }
    }
    stage('deploy')
               {
